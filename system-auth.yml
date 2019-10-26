@@ -6,13 +6,15 @@
   tasks:
  
    - shell: cat /etc/pam.d/system-auth
-     register: sshd_contents
+     register: auth_contents
 
    - meta: end_play
-     when: sshd_contents.stdout.find('password    requisite     pam_pwquality.so minlen=8 lcredit=-1 ucredit=-1 dcredit=-1 ocredit=-1') != -1
+     when: auth_contents.stdout.find('pam_pwquality.so minlen=8 lcredit=-1 ucredit=-1 dcredit=-1 ocredit=-1') != -1
+     
+   - name: Purge file
+     shell: echo > /etc/pam.d/system-auth
 
-
-   - name: insert  configuration block in /etc/pam.d/system-auth
+   - name: insert configuration block in /etc/pam.d/system-auth
      blockinfile:
        path: /etc/pam.d/system-auth
        block: |
