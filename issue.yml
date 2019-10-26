@@ -1,0 +1,26 @@
+---
+- hosts: linuxenvanter
+  gather_facts: false
+  become: yes
+
+  tasks:
+ 
+   - shell: cat /etc/issue
+     register: issue_contents
+
+   - meta: end_play
+     when: issue_contents.stdout.find('!!!DIKKAT!!!') != -1
+
+   - name: Ansible delete /etc/issue file
+     shell: echo  > /etc/issue
+
+
+   - name: insert  configuration block in /etc/motd
+     blockinfile:
+       path: /etc/issue
+
+       block: |
+         !!!DIKKAT!!!
+         Her turlu bankacilik sistemlerine erisim sifrenizin islak imzaniz ile esdeger oldugunu sifre guvenligine dikkat etmeyerek bir baska kimsenin kullanmasina neden olmaniz halinde hukuki ve cezai sorumlulugunuzun bulundugunu ve Disip         lin Yönetmeligi ilgili hukumleri geregince islem yapilacagini unutmayiniz.
+         Saygilarimizla
+

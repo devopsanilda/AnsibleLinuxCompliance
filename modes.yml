@@ -1,0 +1,17 @@
+---
+- hosts: linuxenvanter
+  tasks:
+  - name: "grub mode config"
+    shell: |
+       chown root:root /etc/default/grub
+       chmod og-rwx /etc/default/grub
+  
+  - name: "crontab mode config"
+    shell: |
+       chown root:root /etc/crontab
+       chmod og-rwx /etc/crontab
+
+  - name: "cron.d mode config"
+    shell: | 
+      chown root:root /etc/cron.d
+      chmod og-rwx  /etc/cron.d

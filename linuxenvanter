@@ -1,0 +1,141 @@
+[linuxenvanter]
+172.19.4.137
+172.19.68.184
+172.19.68.183
+172.19.68.182
+172.19.68.181
+172.19.68.136
+172.19.68.137
+172.30.41.106
+172.30.41.208
+192.168.9.37
+192.168.9.36
+172.19.4.151
+192.168.9.19
+192.168.9.21
+192.168.85.152
+192.168.85.153
+172.19.4.53
+172.19.4.57
+172.19.4.58
+172.19.4.150
+172.19.4.149
+172.19.4.148
+172.19.4.153
+172.19.68.115
+172.19.68.206
+172.19.68.87
+172.30.41.43
+172.30.41.44
+#172.30.41.41
+172.30.41.252
+172.29.40.172
+172.29.40.163
+172.29.40.161
+172.29.41.51
+172.29.41.50
+172.29.41.49
+172.19.4.55
+172.29.42.36
+172.29.42.35
+172.29.42.38
+[testlinux]
+172.19.4.136
+[securitylinuxenvanter]
+10.0.42.72
+10.0.42.114
+10.0.42.186
+10.0.42.187
+10.0.42.188
+10.0.42.189
+10.0.42.190
+10.0.42.100
+10.0.42.101
+10.0.42.102
+10.0.42.103
+10.0.42.104
+10.0.42.105
+10.0.42.106
+10.0.42.116
+10.0.42.133
+10.0.42.140
+10.0.42.141
+10.0.42.142
+10.0.42.143
+10.0.43.13
+10.0.43.14
+10.0.43.15
+10.0.43.16
+10.0.43.17
+10.0.43.18
+10.0.43.19
+10.0.43.2
+10.0.43.3
+10.0.43.4
+10.0.43.5
+10.0.43.6
+10.0.43.7
+10.0.43.8
+10.0.43.9
+10.0.43.10
+10.0.42.73
+10.0.42.74
+10.0.42.130
+10.0.42.131
+10.0.42.113
+10.0.43.21
+10.0.43.22
+10.0.43.23
+10.0.43.24
+10.0.43.25
+10.0.42.127
+[scvmm]
+192.168.198.100
+[linuxenvanter:vars]
+ansible_connection=ssh
+ansible_ssh_user=sistem
+ansible_ssh_pass=KsLcFee%102
+[securitylinuxenvanter:vars]
+ansible_connection=ssh
+ansible_ssh_user=sistem
+ansible_ssh_pass=Inter2019
+[scvmm:vars]
+ansible_connection=winrm
+ansible_user=INTER\ANILDA
+ansible_password=Anil19942012=
+ansible_port=5985
+ansible_winrm_server_cert_validation=ignore
+ansible_winrm_transport=ntlm
+[testlinux:vars]
+ansible_connection=ssh
+ansible_ssh_user=sistem
+ansible_ssh_pass=KsLcFee%102
+ansible_become=yes 
+
+# Ex 2: A collection of hosts belonging to the 'webservers' group
+
+## [webservers]
+## alpha.example.org
+## beta.example.org
+## 192.168.1.100
+## 192.168.1.110
+
+# If you have multiple hosts following a pattern you can specify
+# them like this:
+
+## www[001:006].example.com
+
+# Ex 3: A collection of database servers in the 'dbservers' group
+
+## [dbservers]
+##
+## db01.intranet.mydomain.net
+## db02.intranet.mydomain.net
+## 10.25.1.56
+## 10.25.1.57
+
+# Here's another example of host ranges, this time there are no
+# leading 0s:
+
+## db-[99:101]-node.example.com
+

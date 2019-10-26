@@ -1,0 +1,27 @@
+---
+- hosts: testlinux
+  gather_facts: false
+  become: yes
+
+  tasks:
+ 
+   - shell: cat /etc/motd
+     register: motd_contents
+
+   - meta: end_play
+     when: motd_contents.stdout.find('Ansible') != -1
+
+   - name: Ansible delete /etc/motd file
+     shell: echo  > /etc/motd
+          
+
+
+   - name: insert  configuration block in /etc/motd
+     blockinfile:
+       path: /etc/motd
+
+       block: |
+         Bu sunucu Ansible tarafından merkezi olarak yönetilmektedir. Sunucu üzerinde DFHG Linux sunucular standardı otomatik olarak uygulanmaktadır.
+
+         Kullanıcınızın sudo yetkisi varsa "sudo su" komutuyla root kullanıcısına geçiş yapabilirsiniz.         
+ 

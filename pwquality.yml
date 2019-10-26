@@ -1,0 +1,32 @@
+---
+- hosts: linuxenvanter
+  gather_facts: false
+  become: yes
+
+  tasks:
+ 
+   - shell: cat /etc/security/pwquality.conf
+     register: security_contents
+
+   - meta: end_play
+     when: security_contents.stdout.find('minlen = 8') != -1
+
+
+   - name: insert  configuration block in /etc/security/pwquality.conf
+     blockinfile:
+       path: /etc/security/pwquality.conf
+    
+       block: | 
+         difok = 5
+         minlen = 8
+         dcredit = -1
+         ucredit = -1 
+         lcredit = -1
+         ocredit = -1
+         minclass = 0
+         maxrepeat = 0
+         maxclassrepeat = 0
+         maxclassrepeat = 0
+         gecoscheck = 0
+         dictpath =
+
