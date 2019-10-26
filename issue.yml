@@ -15,12 +15,12 @@
      shell: echo  > /etc/issue
 
 
-   - name: insert  configuration block in /etc/motd
+   - name: insert  configuration block in /etc/issue
      blockinfile:
        path: /etc/issue
 
        block: |
          !!!DIKKAT!!!
-         Her turlu bankacilik sistemlerine erisim sifrenizin islak imzaniz ile esdeger oldugunu sifre guvenligine dikkat etmeyerek bir baska kimsenin kullanmasina neden olmaniz halinde hukuki ve cezai sorumlulugunuzun bulundugunu ve Disip         lin Yönetmeligi ilgili hukumleri geregince islem yapilacagini unutmayiniz.
-         Saygilarimizla
+         * * * * * *
+         Sincerely
 
