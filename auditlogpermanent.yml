@@ -11,13 +11,13 @@
    - meta: end_play
      when: auditd_contents.stdout.find('max_log_file_action = keep_logs') != -1
 
-   - name: Ansible insert lineinfile example
+   - name: Delete line below
      lineinfile:
        dest: /etc/audit/auditd.conf
        line: max_log_file_action = rotate
        state: absent
 
-   - name: Audit log compliance
+   - name: Keep log permanently
      shell: | 
        echo "max_log_file_action = keep_logs" >> /etc/audit/auditd.conf
 
