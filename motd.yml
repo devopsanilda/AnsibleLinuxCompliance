@@ -1,5 +1,5 @@
 ---
-- hosts: testlinux
+- hosts: linuxenvanter
   gather_facts: false
   become: yes
 
@@ -21,7 +21,8 @@
        path: /etc/motd
 
        block: |
-         Bu sunucu Ansible tarafından merkezi olarak yönetilmektedir. Sunucu üzerinde DFHG Linux sunucular standardı otomatik olarak uygulanmaktadır.
+         This server is managed by Ansible  centrally.
+         If you have an user that has sudo right, with "sudo su -" command, you can easily pass to root user. 
 
-         Kullanıcınızın sudo yetkisi varsa "sudo su" komutuyla root kullanıcısına geçiş yapabilirsiniz.         
+         .         
  
