@@ -52,7 +52,7 @@
 	 -w /sbin/modprobe -p x -k modules
 	 -a always,exit -F arch=b64 -S init_module -S delete_module -k modules
 	 -e 2
-   - name: Restart service sshd to take effect changes 
+   - name: Restart service auditd to take effect changes 
      service:
        name: auditd 
        state: restart
